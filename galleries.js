@@ -3,28 +3,45 @@ const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 for (const gallery of document.querySelectorAll('.project-gallery')) {
   const track = gallery.querySelector('.screenshot-gallery');
   const controls = gallery.querySelector('.gallery-controls');
-  const previous = controls.querySelector('[data-step="-1"]');
-  const next = controls.querySelector('[data-step="1"]');
+  const count = track.children.length;
 
-  function updateControls() {
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    controls.hidden = maxScroll <= 1;
-    previous.disabled = track.scrollLeft <= 1;
-    next.disabled = track.scrollLeft >= maxScroll - 1;
-  }
-
-  for (const button of [previous, next]) {
-    button.addEventListener('click', () => {
-      const slideWidth = track.firstElementChild.getBoundingClientRect().width;
-      const gap = parseFloat(getComputedStyle(track).columnGap);
-      track.scrollBy({
-        left: Number(button.dataset.step) * (slideWidth + gap),
-        behavior: reducedMotion.matches ? 'auto' : 'smooth',
-      });
+  function showScreenshot(index) {
+    const slide = Math.max(0, Math.min(index, count - 1));
+    track.scrollTo({
+      left: slide * track.clientWidth,
+      behavior: reducedMotion.matches ? 'auto' : 'smooth',
     });
   }
 
-  track.addEventListener('scroll', updateControls, { passive: true });
-  new ResizeObserver(updateControls).observe(track);
-  updateControls();
+  const dots = Array.from({ length: count }, (_, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Screenshot ${index + 1} of ${count}`);
+    dot.setAttribute('aria-controls', track.id);
+    dot.addEventListener('click', () => showScreenshot(index));
+    return dot;
+  });
+
+  function currentScreenshot() {
+    return Math.round(track.scrollLeft / track.clientWidth);
+  }
+
+  function updateDots() {
+    const current = currentScreenshot();
+    dots.forEach((dot, index) => {
+      dot.setAttribute('aria-current', String(index === current));
+    });
+  }
+
+  controls.append(...dots);
+  controls.hidden = false;
+  track.addEventListener('scroll', updateDots, { passive: true });
+  track.addEventListener('keydown', event => {
+    const movement = { ArrowLeft: -1, ArrowRight: 1 }[event.key];
+    if (!movement || event.target !== track) return;
+    event.preventDefault();
+    showScreenshot(currentScreenshot() + movement);
+  });
+  new ResizeObserver(updateDots).observe(track);
+  updateDots();
 }
