@@ -56,6 +56,10 @@ h3 { font-weight: 650; letter-spacing: -.045em; }
 .screenshot-gallery a { display: block; border-radius: .375rem; color: var(--light); text-underline-offset: .2em; font-size: .875rem; }
 .screenshot-gallery a:hover { color: var(--accent); }
 .screenshot-gallery img { display: block; width: 100%; height: auto; margin-bottom: .5rem; border-radius: .375rem; }
+.featured-media { min-width: 0; align-self: center; }
+.more-screenshots { margin-top: .75rem; }
+.more-screenshots summary { width: fit-content; padding-block: .5rem; color: var(--accent); font-size: .9375rem; cursor: pointer; }
+.more-screenshots .screenshot-gallery { margin-top: .5rem; }
 
 .case-study { margin-top: 2rem; border-bottom: 1px solid var(--rule); padding-block: 1rem 2rem; }
 .case-study h3 { font-size: clamp(2rem, 4.5vw, 3.5rem); }
@@ -70,8 +74,8 @@ dd { color: var(--muted); line-height: 1.55; }
 .project-media { display: grid; width: 100%; aspect-ratio: 16 / 9; place-items: center; overflow: hidden; border: 1px solid var(--rule); border-radius: .5rem; background: var(--panel); }
 .project-media img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .project-media:hover { border-color: var(--accent); }
-.screenshot-pair { display: flex; justify-content: center; align-items: center; gap: clamp(.5rem, 2vw, 1rem); }
-.screenshot-pair img { width: auto; height: 90%; border-radius: .375rem; }
+.screenshot-strip { display: flex; justify-content: center; align-items: center; gap: clamp(.5rem, 2vw, 1rem); }
+.screenshot-strip img { width: auto; height: 90%; border-radius: .375rem; }
 .wasla-media { align-self: start; }
 .project .project-media { margin-bottom: 1rem; }
 .project h4 { margin-top: .25rem; font-size: clamp(1.375rem, 3vw, 2rem); font-weight: 650; letter-spacing: -.045em; }
