@@ -17,7 +17,7 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 main:focus { outline: none; }
 .shell { width: min(100% - clamp(2rem, 9vw, 8rem), 72rem); margin-inline: auto; }
-.skip { position: fixed; top: 1rem; left: 1rem; z-index: 2; clip-path: inset(50%); padding: .75rem 1rem; background: var(--panel); }
+.skip { position: fixed; inset-block-start: 1rem; inset-inline-start: 1rem; z-index: 2; clip-path: inset(50%); padding: .75rem 1rem; background: var(--panel); }
 .skip:focus { clip-path: none; }
 
 .masthead { min-height: 4.75rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--rule); }
@@ -26,6 +26,7 @@ main:focus { outline: none; }
 nav, .intro-links, .socials { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem clamp(.75rem, 3vw, 1.75rem); }
 nav a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .9375rem; color: var(--muted); }
 nav a:hover, .wordmark:hover { color: var(--accent); }
+nav .site-language { color: var(--accent); }
 
 .introduction { display: grid; grid-template-columns: 1.35fr 1fr; align-items: end; column-gap: clamp(1.5rem, 6vw, 6rem); padding-block: clamp(2.75rem, 7vw, 6rem); }
 .byline { grid-column: 1 / -1; margin-bottom: .75rem; color: var(--accent); font-weight: 600; }
@@ -64,7 +65,7 @@ dt { margin-bottom: .25rem; font-weight: 600; }
 dd { color: var(--muted); line-height: 1.55; }
 
 .more-heading { margin-block: 2rem 1rem; font-size: 1.75rem; }
-.project-grid { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(1.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
+.project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(1.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
 .project { padding-block: 1.25rem; border-bottom: 1px solid var(--rule); }
 .project-media { display: grid; width: 100%; aspect-ratio: 16 / 9; place-items: center; overflow: hidden; border: 1px solid var(--rule); border-radius: .5rem; background: var(--panel); }
 .project-media img { display: block; width: 100%; height: 100%; object-fit: contain; }
@@ -73,14 +74,19 @@ dd { color: var(--muted); line-height: 1.55; }
 .screenshot-pair img { width: auto; height: 90%; border-radius: .375rem; }
 .wasla-media { align-self: start; }
 .project .project-media { margin-bottom: 1rem; }
-.devstore-media img { width: 28%; height: auto; border-radius: .625rem; }
 .project h4 { margin-top: .25rem; font-size: clamp(1.375rem, 3vw, 2rem); font-weight: 650; letter-spacing: -.045em; }
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem clamp(1.5rem, 6vw, 4.5rem); margin-block: clamp(3rem, 7vw, 5rem); }
 
 footer { border-top: 1px solid var(--rule); background: var(--panel); }
 .contact { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; padding-block: clamp(2.5rem, 5vw, 4rem); }
 .contact h2 { margin-bottom: .75rem; }
+.contact-note { margin-bottom: .75rem; color: var(--muted); }
 .contact .text-link { overflow-wrap: anywhere; }
+
+[dir="rtl"] :is(h1, h2, h3, h4) { letter-spacing: normal; }
+[dir="rtl"] :is(h1, h2, h3, h4, .contact-note) { line-height: 1.2; }
+[dir="rtl"] .intro-foot p:first-child, [dir="rtl"] .featured-copy > p, [dir="rtl"] .case-study p, [dir="rtl"] .project > p, [dir="rtl"] .about p, [dir="rtl"] dd { line-height: 1.8; }
+[dir="rtl"] .featured-copy .technologies { text-align: right; }
 
 @media (max-width: 48rem) {
   .introduction, .featured, .case-study, .about { grid-template-columns: minmax(0, 1fr); }
