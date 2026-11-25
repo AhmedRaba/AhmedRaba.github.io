@@ -51,14 +51,20 @@ h3 { font-weight: 650; letter-spacing: -.045em; }
 .text-link { color: var(--accent); font-weight: 600; text-underline-offset: .25em; text-decoration-color: #b39b55; }
 .text-link:hover { text-decoration-thickness: 2px; }
 
-.screenshot-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-self: center; gap: .75rem; min-width: 0; margin: 0; padding: .25rem; list-style: none; }
+[hidden] { display: none !important; }
+.project-gallery { min-width: 0; align-self: start; }
+.screenshot-gallery { display: grid; grid-auto-flow: column; grid-auto-columns: min(44%, 10rem); gap: .75rem; overflow-x: auto; margin: 0; padding: .375rem .375rem .75rem; list-style: none; scroll-snap-type: x mandatory; scroll-padding-inline: .375rem; scrollbar-color: #77705a var(--panel); }
+.screenshot-gallery li { min-width: 0; scroll-snap-align: start; }
 .screenshot-gallery a { display: block; border-radius: .375rem; color: var(--light); text-underline-offset: .2em; font-size: .875rem; }
 .screenshot-gallery a:hover { color: var(--accent); }
-.screenshot-gallery img { display: block; width: 100%; height: auto; margin-bottom: .5rem; border-radius: .375rem; }
-.featured-media { min-width: 0; align-self: center; }
-.more-screenshots { margin-top: .75rem; }
-.more-screenshots summary { width: fit-content; padding-block: .5rem; color: var(--accent); font-size: .9375rem; cursor: pointer; }
-.more-screenshots .screenshot-gallery { margin-top: .5rem; }
+.screenshot-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: contain; border-radius: .375rem; background: var(--panel); }
+.featured .screenshot-gallery img { margin-bottom: .5rem; }
+.screenshot-gallery .wide-shot { grid-column: span 2; }
+.screenshot-gallery .wide-shot img { aspect-ratio: 9 / 8; }
+.gallery-controls { display: flex; justify-content: flex-end; gap: .5rem; margin-top: .5rem; }
+.gallery-controls button { min-height: 2.75rem; padding: .375rem .75rem; border: 1px solid var(--rule); border-radius: .375rem; background: var(--panel); color: var(--light); font: inherit; font-size: .875rem; cursor: pointer; }
+.gallery-controls button:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.gallery-controls button:disabled { opacity: .5; cursor: default; }
 
 .case-study { margin-top: 2rem; border-bottom: 1px solid var(--rule); padding-block: 1rem 2rem; }
 .case-study h3 { font-size: clamp(2rem, 4.5vw, 3.5rem); }
@@ -70,13 +76,7 @@ dd { color: var(--muted); line-height: 1.55; }
 .more-heading { margin-block: 2rem 1rem; font-size: 1.75rem; }
 .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(1.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
 .project { padding-block: 1.25rem; border-bottom: 1px solid var(--rule); }
-.project-media { display: grid; width: 100%; aspect-ratio: 16 / 9; place-items: center; overflow: hidden; border: 1px solid var(--rule); border-radius: .5rem; background: var(--panel); }
-.project-media img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.project-media:hover { border-color: var(--accent); }
-.screenshot-strip { display: flex; justify-content: center; align-items: center; gap: clamp(.5rem, 2vw, 1rem); }
-.screenshot-strip img { width: auto; height: 90%; border-radius: .375rem; }
-.wasla-media { align-self: start; }
-.project .project-media { margin-bottom: 1rem; }
+.project .project-gallery { margin-bottom: 1rem; }
 .project h4 { margin-top: .25rem; font-size: clamp(1.375rem, 3vw, 2rem); font-weight: 650; letter-spacing: -.045em; }
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem clamp(1.5rem, 6vw, 4.5rem); margin-block: clamp(3rem, 7vw, 5rem); }
 
@@ -96,6 +96,7 @@ footer { border-top: 1px solid var(--rule); background: var(--panel); }
   nav a { font-size: .875rem; }
   h1 { font-size: clamp(3.25rem, 14vw, 4.5rem); }
   .project-grid, .contributions { grid-template-columns: minmax(0, 1fr); }
-  .screenshot-gallery { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 68%; overflow-x: auto; padding: .375rem .375rem .75rem; scroll-snap-type: x proximity; scroll-padding-inline: .375rem; }
-  .screenshot-gallery li { scroll-snap-align: start; }
+  .screenshot-gallery { grid-auto-columns: 58%; }
+  .screenshot-gallery .wide-shot { grid-column: auto; }
+  .screenshot-gallery .wide-shot img { aspect-ratio: 9 / 16; }
 }
