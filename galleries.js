@@ -5,10 +5,10 @@ for (const gallery of document.querySelectorAll('.project-gallery')) {
   const controls = gallery.querySelector('.gallery-controls');
   const count = track.children.length;
 
-  function showScreenshot(index) {
-    const slide = Math.max(0, Math.min(index, count - 1));
+  function showPage(index) {
+    const page = Math.max(0, Math.min(index, count - 1));
     track.scrollTo({
-      left: slide * track.clientWidth,
+      left: page * track.clientWidth,
       behavior: reducedMotion.matches ? 'auto' : 'smooth',
     });
   }
@@ -16,18 +16,18 @@ for (const gallery of document.querySelectorAll('.project-gallery')) {
   const dots = Array.from({ length: count }, (_, index) => {
     const dot = document.createElement('button');
     dot.type = 'button';
-    dot.setAttribute('aria-label', `Screenshot ${index + 1} of ${count}`);
+    dot.setAttribute('aria-label', `Screenshot group ${index + 1} of ${count}`);
     dot.setAttribute('aria-controls', track.id);
-    dot.addEventListener('click', () => showScreenshot(index));
+    dot.addEventListener('click', () => showPage(index));
     return dot;
   });
 
-  function currentScreenshot() {
+  function currentPage() {
     return Math.round(track.scrollLeft / track.clientWidth);
   }
 
   function updateDots() {
-    const current = currentScreenshot();
+    const current = currentPage();
     dots.forEach((dot, index) => {
       dot.setAttribute('aria-current', String(index === current));
     });
@@ -40,7 +40,7 @@ for (const gallery of document.querySelectorAll('.project-gallery')) {
     const movement = { ArrowLeft: -1, ArrowRight: 1 }[event.key];
     if (!movement || event.target !== track) return;
     event.preventDefault();
-    showScreenshot(currentScreenshot() + movement);
+    showPage(currentPage() + movement);
   });
   new ResizeObserver(updateDots).observe(track);
   updateDots();
