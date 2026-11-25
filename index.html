@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbf7ef">
+  <meta name="theme-color" content="#181817">
   <meta name="description" content="Android developer Ahmed Mahmoud Raba. Explore Waraqy, Wasla, and more native Android work.">
   <title>Ahmed Mahmoud Raba | Android Developer</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="preview.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -21,11 +20,15 @@
   </header>
   <main id="main" tabindex="-1">
     <section class="shell introduction" aria-labelledby="name">
-      <p class="role">Native Android developer <span>Sharkia, Egypt</span></p>
-      <h1 id="name">Ahmed Mahmoud<br class="desktop-break"> Raba</h1>
+      <p class="byline" id="name">Ahmed Mahmoud Raba</p>
+      <h1>Android<br>developer<span>.</span></h1>
       <div class="intro-foot">
-        <p>I build native Android apps in Kotlin and Jetpack Compose. My work includes real-time messaging, authentication, and Arabic and English interfaces.</p>
-        <a class="button" href="#work">Explore my work</a>
+        <p>I build native Android apps in Kotlin and Jetpack Compose. My production work includes real-time chat, multi-role authentication, and Arabic and English interfaces.</p>
+        <div class="intro-links">
+          <a class="button" href="#work">View selected work</a>
+          <a class="text-link" href="mailto:ahmedrapa91@gmail.com">Email me</a>
+        </div>
+        <p class="location">Based in Sharkia, Egypt</p>
       </div>
     </section>
     <section class="shell work" id="work" aria-labelledby="work-title">
@@ -34,55 +37,55 @@
         <div class="featured-copy">
           <p class="metadata">Personal Android project · In development</p>
           <h3>Waraqy</h3>
-          <p>An Arabic-first project for organizing documents. Waraqy’s home screen switches between right-to-left Arabic and left-to-right English, with localized document counts.</p>
-          <a class="text-link" href="https://github.com/AhmedRaba/Waraqy">Waraqy on GitHub</a>
+          <p>An Arabic-first Android project for organizing documents. I built the home screen to handle both reading directions and display document counts using each language’s plural rules.</p>
+          <p class="technologies">Kotlin · Jetpack Compose · Material 3 · Hilt · Navigation 3</p>
+          <a class="text-link" href="https://github.com/AhmedRaba/Waraqy">View source on GitHub</a>
         </div>
         <figure class="preview">
-          <figcaption>
-            <span>Home screen preview</span>
-            <div class="languages" role="group" aria-label="Preview language" hidden>
-              <button type="button" lang="ar" data-language="ar" aria-pressed="true">العربية</button>
-              <button type="button" lang="en" data-language="en" aria-pressed="false">English</button>
+          <div class="preview-art">
+            <div class="device" lang="ar" dir="rtl">
+              <p class="app-title">ورقي</p>
+              <p class="app-count">لا توجد مستندات</p>
             </div>
-          </figcaption>
-          <div class="paper" id="app-preview" lang="ar" dir="rtl">
-            <span class="paper-icon" aria-hidden="true"></span>
-            <p id="app-title">ورقي</p>
-            <p id="app-count" aria-live="polite">لا توجد مستندات</p>
           </div>
+          <figcaption>Waraqy’s Arabic home screen preview</figcaption>
         </figure>
-        <dl class="stack">
-          <div><dt>Interface</dt><dd>Compose, Material 3</dd></div>
-          <div><dt>Foundation</dt><dd>Kotlin, Hilt, StateFlow, Navigation 3</dd></div>
+      </article>
+      <article class="case-study" aria-labelledby="wasla-title">
+        <div>
+          <p class="metadata">Develop Network · 2025–2026</p>
+          <h3 id="wasla-title">Wasla</h3>
+          <p>A production social networking app with events, feeds, and messaging.</p>
+          <a class="text-link" href="https://play.google.com/store/apps/details?id=com.devnetwork.wasla">Wasla on Google Play</a>
+        </div>
+        <dl class="contributions">
+          <div><dt>Messaging</dt><dd>Integrated real-time chat and push notifications with Firebase.</dd></div>
+          <div><dt>Accounts and discovery</dt><dd>Implemented multi-role authentication, social feeds, and events.</dd></div>
+          <div><dt>App navigation</dt><dd>Worked on deep links and Arabic and English localization.</dd></div>
         </dl>
       </article>
+      <h3 class="more-heading">More projects</h3>
       <div class="project-grid">
-        <article class="project lead">
-          <p class="metadata">Develop Network · 2025–2026</p>
-          <h3>Wasla</h3>
-          <p>I built features for a production social networking app, from multi-role authentication and social feeds to real-time chat, push notifications, and localized interfaces.</p>
-          <a class="text-link" href="https://play.google.com/store/apps/details?id=com.devnetwork.wasla">Wasla on Google Play</a>
-        </article>
         <article class="project">
           <p class="metadata">PithSoft · 2025</p>
-          <h3>Amel Tech</h3>
+          <h4>Amel Tech</h4>
           <p>I integrated a WebView payment flow and updated the image-cropping library in a Kotlin and XML app.</p>
           <a class="text-link" href="https://play.google.com/store/apps/details?id=com.mrhbaa.ameltech">Amel Tech on Google Play</a>
         </article>
         <article class="project">
           <p class="metadata">PithSoft · 2025</p>
-          <h3>Padel Prime</h3>
+          <h4>Padel Prime</h4>
           <p>I built Compose screens for players, coaches, and court managers in collaboration with clients.</p>
         </article>
         <article class="project">
           <p class="metadata">Personal project</p>
-          <h3>Crypto Tracker</h3>
+          <h4>Crypto Tracker</h4>
           <p>I built an adaptive coin browser with Kotlin, Compose, Ktor, Koin, and MVI.</p>
           <a class="text-link" href="https://github.com/AhmedRaba/CryptoTracker">Crypto Tracker on GitHub</a>
         </article>
         <article class="project">
           <p class="metadata">Graduation project</p>
-          <h3>DevStore</h3>
+          <h4>DevStore</h4>
           <p>An Android app and website for selling coding projects, with authentication, ratings, and payments.</p>
           <a class="text-link" href="https://github.com/AhmedRaba/DevStore">DevStore on GitHub</a>
         </article>
